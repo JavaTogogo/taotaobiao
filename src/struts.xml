@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!-- 打开把Action交给Spring管理的配置项 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="back" namespace="/" extends="struts-default">
+		<action name="RegisterAction" class="registerAction">
+			<result name="isNotNull">/admin/userinfo.jsp</result>
+			<result name="yes">/admin/userinfo.jsp</result>
+			<result name="getOk">/admin/userinfo.jsp</result>
+			<result name="getError">/admin/userinfo.jsp</result>
+			<result name="delOk">/admin/userinfo.jsp</result>
+		</action>
+
+		<action name="BrandAction" class="brandAction">
+			<!-- <interceptor-ref name="fileUpload"> -->
+			<!-- 配置允许上传的文件类型 -->
+			<!-- <param name="allowedTypes">image/bmp,image/png,image/gif, -->
+			<!-- image/jpeg,image/pjpeg,image/x-png</param> -->
+			<!-- 配置允许上传文件的大小(单位字节) -->
+			<!--<param name="maximumSize">80000</param> -->
+			<!-- </interceptor-ref> -->
+			<result>/admin/managerbrand.jsp</result>
+			<result name="FileIsNull">/admin/managerbrand.jsp</result>
+			<result name="Del">/admin/managerbrand.jsp</result>
+		</action>
+		<action name="ProductAction" class="productAction">
+		
+		   <result>/admin/managerproduct.jsp</result>
+		   <result name="error">/admin/managerproduct.jsp</result>
+		</action>
+
+	</package>
+
+
+
+
+</struts>
